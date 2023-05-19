@@ -1,4 +1,4 @@
-package org.itsman.baseandroid.Tools
+package org.itsman.baseandroid
 
 import android.content.Context
 import android.widget.Toast
