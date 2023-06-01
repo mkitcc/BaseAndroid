@@ -1,9 +1,22 @@
 package org.itsman.baseandroid.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import java.io.Closeable
 
 
-class UserProfileViewModel(vararg closeables: Closeable?) : ViewModel(*closeables) {
+class UserProfileViewModel : ViewModel() {
+
+    val user: MutableLiveData<User> by lazy {
+        MutableLiveData<User>().also {
+            loadUser()
+        }
+    }
+
+    private fun loadUser() {
+        user.value = User("Kevin")
+    }
 
 }
+
+class User(var name: String);
