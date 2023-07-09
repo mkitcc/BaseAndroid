@@ -1,4 +1,4 @@
-package org.itsman.baseandroid
+package org.itsman.baseandroid.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,6 +23,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.itsman.baseandroid.R
+import org.itsman.tools.toast
 import org.itsman.baseandroid.viewmodel.UserProfileViewModel
 import org.itsman.network.HttpClient
 import org.itsman.network.QuoteList
@@ -32,8 +34,6 @@ class MainActivity : AppCompatActivity() {
     private val user: UserProfileViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-
         setContent {
             Show(name = "Hello World") {
                 toast(this@MainActivity)

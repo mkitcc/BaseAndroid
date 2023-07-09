@@ -23,13 +23,3 @@ object HttpClient {
     }
 }
 
-
-interface ApiServer {
-
-    @GET("/quotes")
-    suspend fun getQuotes(): Response<QuoteList>
-
-    @GET("/quotes")
-    fun getQuotes2(): Observable<QuoteList>
-
-}
