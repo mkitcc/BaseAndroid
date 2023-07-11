@@ -2,6 +2,8 @@ package org.itsman.baseandroid.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.compose.setContent
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Show(name = "Hello World") {
-                toast(this@MainActivity,"compose view")
+                toast(this@MainActivity, "compose view")
             }
         }
         lifecycle.addObserver(object : DefaultLifecycleObserver {
@@ -47,6 +49,13 @@ class MainActivity : AppCompatActivity() {
                 toast(this@MainActivity, "lifecycleOwner")
             }
         })
+        val handler = Handler(Looper.getMainLooper()) {
+            if (it.what == 1) {
+
+            }
+            false
+        }
+        handler.sendEmptyMessage(10)
         WindowCompat.getInsetsController(window, window.decorView)
             .hide(WindowInsetsCompat.Type.systemBars())
         getData()
