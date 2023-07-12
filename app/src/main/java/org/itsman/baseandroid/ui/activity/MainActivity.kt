@@ -15,6 +15,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.itsman.baseandroid.ui.compose.Counter
 import org.itsman.baseandroid.ui.compose.Show
 import org.itsman.baseandroid.viewmodel.UserProfileViewModel
 import org.itsman.network.HttpClient
@@ -27,9 +28,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Show(name = "Hello World") {
-                toast(this@MainActivity, "compose view")
-            }
+//            Show(name = "Hello World", list = getData())
+            Counter()
         }
         lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onCreate(owner: LifecycleOwner) {
@@ -46,18 +46,17 @@ class MainActivity : AppCompatActivity() {
         handler.sendEmptyMessage(1023)
         WindowCompat.getInsetsController(window, window.decorView)
             .hide(WindowInsetsCompat.Type.systemBars())
-        getData()
     }
 
-    private fun getData() {
-        GlobalScope.launch {
-            val result2 = HttpClient.getInstance().getQuotes2()
-            result2.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this@MainActivity::showData, this@MainActivity::showErr)
-        }
-
-    }
+//    private fun getData() {
+//        GlobalScope.launch {
+//            val result2 = HttpClient.getInstance().getQuotes2()
+//            result2.subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(this@MainActivity::showData, this@MainActivity::showErr)
+//        }
+//
+//    }
 
     private fun showData(result: QuoteList) {
         Log.d("Rxjava", result.toString())
@@ -67,5 +66,9 @@ class MainActivity : AppCompatActivity() {
         Log.e("Rxjava", "Error")
     }
 
-
+    private fun getData(): List<String> {
+        return List(20) {
+            "Compose课程第${it + 1}课,快来学习吧～"
+        }
+    }
 }
