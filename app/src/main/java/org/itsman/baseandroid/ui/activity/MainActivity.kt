@@ -1,25 +1,12 @@
 package org.itsman.baseandroid.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Divider
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -28,11 +15,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.itsman.baseandroid.R
-import org.itsman.tools.toast
+import org.itsman.baseandroid.ui.compose.Show
 import org.itsman.baseandroid.viewmodel.UserProfileViewModel
 import org.itsman.network.HttpClient
 import org.itsman.network.QuoteList
+import org.itsman.tools.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,12 +37,13 @@ class MainActivity : AppCompatActivity() {
             }
         })
         val handler = Handler(Looper.getMainLooper()) {
-            if (it.what == 1) {
-
+            if (it.what == 1204) {
+                toast(this, "handler")
             }
             false
         }
-        handler.sendEmptyMessage(10)
+        handler.sendEmptyMessageDelayed(1204, 5000)
+        handler.sendEmptyMessage(1023)
         WindowCompat.getInsetsController(window, window.decorView)
             .hide(WindowInsetsCompat.Type.systemBars())
         getData()
@@ -76,25 +64,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showErr(err: Throwable) {
-
+        Log.e("Rxjava", "Error")
     }
 
-    @Composable
-    fun Show(name: String, onClick: () -> Unit): Unit {
-        Column(
-            Modifier
-                .clickable(onClick = onClick)
-                .padding(22.dp)
-                .background(color = Color.Green)
-        ) {
-            Text(text = "hello world", Modifier.padding(10.dp))
-            Text(text = "hello world", Modifier.padding(10.dp))
-            Text(text = "hello world", Modifier.padding(10.dp))
-            Divider(color = Color.Black)
-            Image(
-                painter = painterResource(id = R.drawable.asdf),
-                contentDescription = null
-            )
-        }
-    }
+
 }
