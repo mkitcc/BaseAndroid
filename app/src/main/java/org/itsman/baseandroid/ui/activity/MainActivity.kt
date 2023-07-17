@@ -11,6 +11,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import kotlinx.coroutines.runBlocking
 import org.itsman.baseandroid.ui.compose.Counter
 import org.itsman.baseandroid.viewmodel.UserProfileViewModel
 import org.itsman.network.QuoteList
@@ -22,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-//            Show(name = "Hello World", list = getData())
             Counter()
         }
         lifecycle.addObserver(object : DefaultLifecycleObserver {
@@ -40,6 +40,9 @@ class MainActivity : AppCompatActivity() {
         handler.sendEmptyMessage(1023)
         WindowCompat.getInsetsController(window, window.decorView)
             .hide(WindowInsetsCompat.Type.systemBars())
+        runBlocking {
+
+        }
     }
 
 //    private fun getData() {
