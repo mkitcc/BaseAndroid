@@ -11,14 +11,8 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.itsman.baseandroid.ui.compose.Counter
-import org.itsman.baseandroid.ui.compose.Show
 import org.itsman.baseandroid.viewmodel.UserProfileViewModel
-import org.itsman.network.HttpClient
 import org.itsman.network.QuoteList
 import org.itsman.tools.toast
 
@@ -33,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
         lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onCreate(owner: LifecycleOwner) {
-                toast(this@MainActivity, "lifecycleOwner")
+                NavigationActivity.start(this@MainActivity)
             }
         })
         val handler = Handler(Looper.getMainLooper()) {
