@@ -1,6 +1,6 @@
 package org.itsman.network
 
-import io.reactivex.Observable
+import org.itsman.network.entity.QuoteList
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -10,5 +10,5 @@ interface ApiServer {
     suspend fun getQuotes(): Response<QuoteList>
 
     @GET("/quotes")
-    fun getQuotes2(): Observable<QuoteList>
+    suspend fun getQuotes2(): QuoteList
 }

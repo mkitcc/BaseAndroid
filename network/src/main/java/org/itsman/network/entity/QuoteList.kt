@@ -1,4 +1,4 @@
-package org.itsman.network
+package org.itsman.network.entity
 
 data class QuoteList(
     val count: Int,

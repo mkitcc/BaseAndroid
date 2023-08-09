@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import org.itsman.baseandroid.databinding.ActivityNavigationBinding
 
-class NavigationActivity : AppCompatActivity() {
+class NavigationActivity : BaseActivity() {
 
     private lateinit var bind: ActivityNavigationBinding
 

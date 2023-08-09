@@ -1,71 +1,24 @@
 package org.itsman.baseandroid.ui.activity
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
-import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleOwner
-import kotlinx.coroutines.runBlocking
-import org.itsman.baseandroid.ui.compose.Counter
-import org.itsman.baseandroid.viewmodel.UserProfileViewModel
-import org.itsman.network.QuoteList
-import org.itsman.tools.toast
+import org.itsman.baseandroid.databinding.ActivityMainBinding
+import org.itsman.baseandroid.viewmodel.MainActivityVM
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    private val user: UserProfileViewModel by viewModels()
+    private val model: MainActivityVM by viewModels()
+    private lateinit var bind: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            Counter()
-        }
-        lifecycle.addObserver(object : DefaultLifecycleObserver {
-            override fun onCreate(owner: LifecycleOwner) {
-                NavigationActivity.start(this@MainActivity)
-            }
-        })
-        val handler = Handler(Looper.getMainLooper()) {
-            if (it.what == 1204) {
-                toast(this, "handler")
-            }
-            false
-        }
-        handler.sendEmptyMessageDelayed(1204, 5000)
-        handler.sendEmptyMessage(1023)
+        bind = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bind.root)
         WindowCompat.getInsetsController(window, window.decorView)
             .hide(WindowInsetsCompat.Type.systemBars())
-        runBlocking {
-
-        }
-    }
-
-//    private fun getData() {
-//        GlobalScope.launch {
-//            val result2 = HttpClient.getInstance().getQuotes2()
-//            result2.subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(this@MainActivity::showData, this@MainActivity::showErr)
-//        }
-//
-//    }
-
-    private fun showData(result: QuoteList) {
-        Log.d("Rxjava", result.toString())
-    }
-
-    private fun showErr(err: Throwable) {
-        Log.e("Rxjava", "Error")
-    }
-
-    private fun getData(): List<String> {
-        return List(20) {
-            "Compose课程第${it + 1}课,快来学习吧～"
-        }
+        bind.button.text = "hello 123"
+        model.getData()
     }
 }
