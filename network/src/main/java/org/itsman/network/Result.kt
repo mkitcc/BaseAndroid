@@ -1,13 +1,13 @@
 package org.itsman.network
 
 
-data class Response<T>(
-    val code: Int? = -9999,
+data class ResponseResult<T>(
+    val errorCode: Int = -9999,
     val errorMsg: String? = "",
     val data: T? = null
 ) {
     fun isSuccess(): Boolean {
-        return code == 0
+        return errorCode == 0
     }
 
 }

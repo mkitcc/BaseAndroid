@@ -1,14 +1,11 @@
 package org.itsman.network
 
-import org.itsman.network.entity.QuoteList
-import retrofit2.Response
+import org.itsman.network.entity.Hotkey
 import retrofit2.http.GET
 
 interface ApiServer {
 
-    @GET("/quotes")
-    suspend fun getQuotes(): Response<QuoteList>
+    @GET("/hotkey/json")
+    suspend fun getHotkey(): ResponseResult<List<Hotkey>>
 
-    @GET("/quotes")
-    suspend fun getQuotes2(): QuoteList
 }
