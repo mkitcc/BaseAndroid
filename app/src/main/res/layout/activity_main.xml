@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_text" />
 
-    <org.itsman.k_library.view.CanvasView
+    <org.itsman.fastlibrary.view.CanvasView
         android:layout_width="300dp"
         android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"

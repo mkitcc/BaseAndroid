@@ -9,7 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.DialogFragment
 import org.itsman.baseandroid.databinding.ActivityMainBinding
 import org.itsman.baseandroid.viewmodel.MainActivityVM
-import org.itsman.k_library.tools.toast
+import org.itsman.fastlibrary.tools.toast
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 

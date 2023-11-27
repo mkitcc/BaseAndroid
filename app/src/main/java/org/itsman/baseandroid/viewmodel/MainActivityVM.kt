@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import org.itsman.k_library.network.HttpClient
-import org.itsman.k_library.network.RequestResult
+import org.itsman.fastlibrary.network.HttpClient
+import org.itsman.fastlibrary.network.RequestResult
 
 class MainActivityVM : ViewModel() {
 
