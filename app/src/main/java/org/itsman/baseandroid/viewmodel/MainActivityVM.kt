@@ -1,14 +1,11 @@
 package org.itsman.baseandroid.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import org.itsman.network.HttpClient
-import org.itsman.network.RequestResult
+import org.itsman.k_library.network.HttpClient
+import org.itsman.k_library.network.RequestResult
 
 class MainActivityVM : ViewModel() {
 
