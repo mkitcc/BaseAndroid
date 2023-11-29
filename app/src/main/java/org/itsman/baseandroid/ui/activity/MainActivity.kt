@@ -1,15 +1,13 @@
 package org.itsman.baseandroid.ui.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.DialogFragment
 import org.itsman.baseandroid.databinding.ActivityMainBinding
 import org.itsman.baseandroid.viewmodel.MainActivityVM
-import org.itsman.fastlibrary.tools.toast
+import org.itsman.fastlibrary.dialog.CustomDialog
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
@@ -28,10 +26,9 @@ class MainActivity : BaseActivity() {
         bind.button.text = "hello 123"
         model.data.observe(this) {
             bind.tvText.text = it
+            CustomDialog().show(supportFragmentManager)
         }
         model.getData()
-        Log.e("MainActivity",aa)
-        toast(this,"Kotlin Toast")
     }
 }
 
