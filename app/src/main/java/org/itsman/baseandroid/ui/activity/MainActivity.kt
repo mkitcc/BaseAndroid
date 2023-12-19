@@ -17,8 +17,7 @@ import kotlin.reflect.KProperty
 
 class MainActivity : BaseActivity() {
 
-    //    private val model: MainActivityVM by viewModels()
-//    private var aa: String by MyTest()
+//    private val model: MainActivityVM by viewModels()
 //    private lateinit var bind: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,16 +42,4 @@ class MainActivity : BaseActivity() {
 //            CustomDialog().show(supportFragmentManager)
 //        }
     }
-}
-
-
-class MyTest : ReadWriteProperty<MainActivity, String> {
-    override fun getValue(thisRef: MainActivity, property: KProperty<*>): String {
-        return "Hello"
-    }
-
-    override fun setValue(thisRef: MainActivity, property: KProperty<*>, value: String) {
-
-    }
-
 }
