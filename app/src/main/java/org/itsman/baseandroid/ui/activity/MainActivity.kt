@@ -43,3 +43,15 @@ class MainActivity : BaseActivity() {
 //        }
     }
 }
+
+class AA(val aa: String) {
+    val bb = aa
+
+    fun adbc() {
+        val cc = aa
+    }
+
+    constructor(i: String, i2: String) : this(i) {
+
+    }
+}

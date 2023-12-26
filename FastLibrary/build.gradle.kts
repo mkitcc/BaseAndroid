@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
 android {
@@ -39,6 +40,23 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.7"
+    }
+}
+
+afterEvaluate {
+    publishing { // 发布配置
+        publications { // 发布的内容
+            register<MavenPublication>("release") { // 注册一个名字为 release 的发布内容
+                groupId = "org.itsman.baseandroid"
+                artifactId = "fast-library"
+                version = "1.0"
+
+                afterEvaluate { // 在所有的配置都完成之后执行
+                    // 从当前 module 的 release 包中发布
+                    from(components["release"])
+                }
+            }
+        }
     }
 }
 
