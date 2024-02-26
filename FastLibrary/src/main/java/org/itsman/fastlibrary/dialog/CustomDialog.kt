@@ -16,6 +16,12 @@ class CustomDialog : DialogFragment(){
     }
     companion object {
         const val TAG = "CustomDialog"
+        fun ins() : CustomDialog{
+            val dialog = CustomDialog()
+            val bundle = Bundle()
+            dialog.arguments = bundle
+            return CustomDialog()
+        }
     }
 
     fun show(manager: FragmentManager){

@@ -2,10 +2,8 @@ package org.itsman.fastlibrary.tools
 
 import android.util.Log
 
-object FLog {
-    const val HEAD = "FastLibrary"
+private const val HEAD = "FastLibrary"
 
-    fun e(str: String) {
-        Log.e(HEAD, str)
-    }
+fun log(str: String) {
+    Log.e(HEAD, str)
 }

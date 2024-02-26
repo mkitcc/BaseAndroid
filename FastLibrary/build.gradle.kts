@@ -65,6 +65,8 @@ dependencies {
     //网络相关
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    //Paging
+    implementation("androidx.paging:paging-runtime-ktx:3.2.1")
 
 //    //Compose
 //    implementation("androidx.compose.ui:ui")

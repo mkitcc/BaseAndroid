@@ -28,24 +28,33 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
 import org.itsman.baseandroid.R
+import org.itsman.baseandroid.viewmodel.MainActivityVM
 import org.itsman.fastlibrary.tools.toast
 
-@Preview(showBackground = true, name = "Main", showSystemUi = true)
+
+val params = Modifier
+    .padding(10.dp)
+    .fillMaxWidth(1f)
+    .background(color = Color.Green)
+
+
+//@Preview(showBackground = true, name = "Main", showSystemUi = true)
 @Composable
-fun Show(name: String = "kevin"): Unit {
+fun Show(name: String = "kevin", model: MainActivityVM): Unit {
     var data by remember {
         mutableStateOf(1)
     }
-    val params = Modifier
-        .padding(10.dp)
-        .fillMaxWidth(1f)
-        .background(color = Color.Green)
     Column {
         Box(modifier = params) {
             Image(
@@ -57,15 +66,33 @@ fun Show(name: String = "kevin"): Unit {
             )
         }
         Row {
-            Text(text = name + data,
-                color = Color(android.graphics.Color.parseColor("#009900")),
+            Text(
+                text = name + data,
+                color = Color(0xffff0090),
                 fontSize = TextUnit.Unspecified,
                 modifier = Modifier.size(140.dp)
             )
             Text(
-                text = "asdfasdfasdfweijasldfijweija;sldfijweijsdfkjfiesdkfjeiajsdlfiwejiasdfe",
+                text = buildAnnotatedString {
+                    withStyle(
+                        style = SpanStyle(
+                            color = Color.Green, fontSize = TextUnit(20F, TextUnitType.Sp)
+                        )
+                    ) {
+                        append("HH")
+                    }
+                    withStyle(
+                        style = SpanStyle(
+                            color = Color(0xff00B277), fontSize = TextUnit(15F, TextUnitType.Sp)
+                        )
+                    ) {
+                        append("123")
+                    }
+                    append(model.stat.value)
+                },
                 overflow = TextOverflow.Visible,
-                maxLines = 1
+                maxLines = 1,
+                fontSize = TextUnit(10F, TextUnitType.Sp)
             )
         }
     }
