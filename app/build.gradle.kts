@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "org.itsman.baseandroid"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "org.itsman.baseandroid"

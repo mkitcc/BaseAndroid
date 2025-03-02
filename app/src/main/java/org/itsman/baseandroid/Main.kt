@@ -1,6 +1,8 @@
 package org.itsman.baseandroid
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -15,10 +17,27 @@ fun main(): Unit = runBlocking {
     b = a
     println(b.foo())
     println(b.a)
+    var job =launch {
+        app("launch")
+        try {
+
+        }finally {
+            app("finally")
+        }
+    }
+    job.cancelAndJoin()
 }
 
 class AA<out T>(val a: T) {
     fun foo(): T {
         return a
     }
+}
+
+fun test(){
+    GlobalScope.launch {  }
+}
+suspend fun app(a:String){
+    delay(1000)
+    println("suspend fun $a")
 }

@@ -2,10 +2,14 @@ package org.itsman.baseandroid.ui.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBar.LayoutParams
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import org.itsman.baseandroid.R
 import org.itsman.baseandroid.databinding.ActivityMainBinding
 import org.itsman.baseandroid.ui.compose.Counter
 import org.itsman.baseandroid.ui.compose.Show
@@ -38,8 +42,9 @@ class MainActivity : BaseActivity() {
 //            bind.tvText.text = it
 //            CustomDialog().show(supportFragmentManager)
 //        }
-        bind.button.setOnClickListener{
-            CustomDialog().show(supportFragmentManager)
+        bind.button.setOnClickListener {
+            //CustomDialog().show(supportFragmentManager)
+            addView()
         }
         model.getData()
         model.data.observe(this) {
@@ -49,16 +54,15 @@ class MainActivity : BaseActivity() {
 //            CustomDialog().show(supportFragmentManager)
 //        }
     }
-}
 
-class AA(val aa: String) {
-    val bb = aa
-
-    fun adbc() {
-        val cc = aa
-    }
-
-    constructor(i: String, i2: String) : this(i) {
-
+    private fun addView(){
+        val layoutParams = WindowManager.LayoutParams().apply {
+            width = LayoutParams.WRAP_CONTENT
+            height = LayoutParams.WRAP_CONTENT
+            flags =
+                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+        }
+        val view = layoutInflater.inflate(R.layout.flowwm,null)
+        windowManager.addView(view,layoutParams)
     }
 }
