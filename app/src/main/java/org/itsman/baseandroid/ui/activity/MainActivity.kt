@@ -1,7 +1,9 @@
 package org.itsman.baseandroid.ui.activity
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.activity.compose.setContent
@@ -46,23 +48,46 @@ class MainActivity : BaseActivity() {
             //CustomDialog().show(supportFragmentManager)
             addView()
         }
+        bind.button.post {
+            log("" + bind.button.width)
+        }
+        bind.button.viewTreeObserver.addOnGlobalLayoutListener {
+
+        }
         model.getData()
         model.data.observe(this) {
             log(it!!)
         }
-//        bind.button.setOnClickListener {
-//            CustomDialog().show(supportFragmentManager)
-//        }
+        log("onCreate")
     }
 
-    private fun addView(){
+    private fun addView() {
         val layoutParams = WindowManager.LayoutParams().apply {
             width = LayoutParams.WRAP_CONTENT
             height = LayoutParams.WRAP_CONTENT
             flags =
                 WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
         }
-        val view = layoutInflater.inflate(R.layout.flowwm,null)
-        windowManager.addView(view,layoutParams)
+        val view = layoutInflater.inflate(R.layout.flowwm, null)
+        windowManager.addView(view, layoutParams)
+    }
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        log("configChanged")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        log("onDestroy")
     }
 }
