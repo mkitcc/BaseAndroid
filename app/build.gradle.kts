@@ -1,9 +1,8 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.kotlin)
     //hilt 注入
     id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -22,6 +21,7 @@ android {
 
     buildFeatures {
         compose = true
+        viewBinding = true
     }
 
     buildTypes {
@@ -47,71 +47,37 @@ android {
         jvmTarget = "17"
     }
 
-    viewBinding {
-        enable = true
-    }
+//    viewBinding {
+//        enable = true
+//    }
 }
 
 dependencies {
 
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.com.google.android.material)
+    implementation(libs.androidx.constraintlayout)
     //kotlin 协程
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation(project(path = ":FastLibrary"))
+    implementation(libs.jetbrains.kotlinx.coroutines.android)
     //compose
-    val composeBom = platform("androidx.compose:compose-bom:2023.01.00")
-    implementation("androidx.compose:compose-bom:2023.06.01")
-    androidTestImplementation("androidx.compose:compose-bom:2023.06.01")
-
-    implementation("androidx.compose.material3:material3:1.1.1")
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.material3)
     // or Material Design 2
-    implementation("androidx.compose.foundation:foundation:1.4.3")
-    // or only import the main APIs for the underlying toolkit systems,
-    // such as input and measurement/layout
-    implementation("androidx.compose.ui:ui:1.4.3")
-    implementation("androidx.compose.animation:animation:1.4.3")
-    implementation("androidx.compose.foundation:foundation:1.4.3")
-    implementation("androidx.compose.material:material:1.4.3")
-    implementation("androidx.compose.runtime:runtime:1.4.3")
-    implementation("androidx.compose.ui:ui:1.4.3")
-    implementation("androidx.activity:activity-compose:1.7.2")
-    // Android Studio Preview support
-    implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.4.3")
-    /////////////////////////////////////////////////////
-    //navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.animation)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.ui.tooling)
+    debugImplementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.com.squareup.retrofit2)
+    implementation(libs.com.squareup.retrofit2.converter.gson)
+    implementation(libs.com.squareup.retrofit2.adapter.rxjava)
+    implementation(libs.io.reactivex.rxjava2.rxandroid)
 
-    //hilt 注入
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-compiler:2.44")
-
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(project(path = ":FastLibrary"))
 }
-
-
-println("====== $this.class")
-
-task("hello world") {
-    println("task hello world")
-    doLast {
-        println("doLast")
-    }
-}
-//10.times { i ->
-//    task("Task$i") {
-//        val aa = i
-//        println(aa)
-//    }
-//
-//}
