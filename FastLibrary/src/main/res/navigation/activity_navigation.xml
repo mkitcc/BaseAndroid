@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="org.itsman.baseandroid.ui.fragment.HomeFragment"
+        android:name="org.itsman.fastlibrary.ui.fragment.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_aboutFragment"
@@ -14,6 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="org.itsman.baseandroid.ui.fragment.AboutFragment"
+        android:name="org.itsman.fastlibrary.ui.fragment.AboutFragment"
         android:label="AboutFragment" />
 </navigation>

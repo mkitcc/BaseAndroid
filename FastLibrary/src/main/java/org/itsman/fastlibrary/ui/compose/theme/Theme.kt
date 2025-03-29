@@ -1,4 +1,4 @@
-package org.itsman.fastlibrary.theme
+package org.itsman.fastlibrary.ui.compose.theme
 
 import android.app.Activity
 import android.os.Build

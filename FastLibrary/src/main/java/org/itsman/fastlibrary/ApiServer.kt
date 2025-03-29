@@ -1,4 +1,4 @@
-package org.itsman.baseandroid
+package org.itsman.fastlibrary
 
 import org.itsman.fastlibrary.network.ResponseResult
 import org.itsman.fastlibrary.network.entity.Hotkey

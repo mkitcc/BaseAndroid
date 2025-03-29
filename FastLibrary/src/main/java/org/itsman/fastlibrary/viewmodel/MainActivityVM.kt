@@ -1,4 +1,4 @@
-package org.itsman.baseandroid.viewmodel
+package org.itsman.fastlibrary.viewmodel
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import org.itsman.baseandroid.ApiServer
 import org.itsman.fastlibrary.network.HttpClient
 import org.itsman.fastlibrary.network.RequestResult
 

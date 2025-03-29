@@ -1,4 +1,4 @@
-package org.itsman.fastlibrary.view;
+package org.itsman.fastlibrary.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

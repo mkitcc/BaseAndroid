@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.MainActivity">
+    tools:context="org.itsman.fastlibrary.ui.activity.MainActivity">
 
     <TextView
         android:id="@+id/tv_text"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <org.itsman.fastlibrary.view.CanvasView
+    <org.itsman.fastlibrary.ui.view.CanvasView
         android:layout_width="300dp"
         android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"

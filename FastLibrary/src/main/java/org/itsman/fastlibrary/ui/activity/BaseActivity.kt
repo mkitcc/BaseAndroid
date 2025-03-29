@@ -1,4 +1,4 @@
-package org.itsman.baseandroid.ui.activity
+package org.itsman.fastlibrary.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 

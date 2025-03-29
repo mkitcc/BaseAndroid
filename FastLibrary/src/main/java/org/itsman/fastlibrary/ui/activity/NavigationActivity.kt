@@ -1,10 +1,10 @@
-package org.itsman.baseandroid.ui.activity
+package org.itsman.fastlibrary.ui.activity
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import org.itsman.baseandroid.databinding.ActivityNavigationBinding
+import org.itsman.fastlibrary.databinding.ActivityNavigationBinding
 
 class NavigationActivity : BaseActivity() {
 

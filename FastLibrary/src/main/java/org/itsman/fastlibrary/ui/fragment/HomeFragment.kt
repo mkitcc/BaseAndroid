@@ -1,4 +1,4 @@
-package org.itsman.baseandroid.ui.fragment
+package org.itsman.fastlibrary.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import org.itsman.baseandroid.R
+import org.itsman.fastlibrary.R
 
 class HomeFragment : Fragment() {
 

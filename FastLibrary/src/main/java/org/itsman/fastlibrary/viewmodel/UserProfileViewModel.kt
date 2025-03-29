@@ -1,8 +1,7 @@
-package org.itsman.baseandroid.viewmodel
+package org.itsman.fastlibrary.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import java.io.Closeable
 
 
 class UserProfileViewModel : ViewModel() {

@@ -1,4 +1,4 @@
-package org.itsman.baseandroid.ui.activity
+package org.itsman.fastlibrary.ui.activity
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -6,15 +6,12 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.view.WindowManager
-import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar.LayoutParams
-import org.itsman.baseandroid.R
-import org.itsman.baseandroid.databinding.ActivityMainBinding
-import org.itsman.baseandroid.ui.compose.Show
-import org.itsman.baseandroid.viewmodel.MainActivityVM
-import org.itsman.fastlibrary.theme.BaseAndroidTheme
+import org.itsman.fastlibrary.R
+import org.itsman.fastlibrary.databinding.ActivityMainBinding
 import org.itsman.fastlibrary.tools.log
+import org.itsman.fastlibrary.viewmodel.MainActivityVM
 
 class MainActivity : BaseActivity() {
 
@@ -26,22 +23,16 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         bind = ActivityMainBinding.inflate(layoutInflater)
 
-//        setContentView(bind.root)
+        setContentView(bind.root)
         handler = Handler(Looper.getMainLooper(), object : Handler.Callback {
             override fun handleMessage(msg: Message): Boolean {
 
                 return true
             }
         })
-        setContent {
-            BaseAndroidTheme {
-                Show(name = "kevin",model = model)
-            }
-        }
-
 //        setContent {
 //            BaseAndroidTheme {
-//                Show(name = "kevin", model = model)
+//                Show(name = "kevin",model = model)
 //            }
 //        }
 
