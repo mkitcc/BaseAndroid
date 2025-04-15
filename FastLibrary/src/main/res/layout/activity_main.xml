@@ -22,8 +22,8 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#e3e3e3"
         android:text="Hello World"
-        android:background="@drawable/bg_buttton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +38,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <org.itsman.fastlibrary.ui.view.CanvasView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -13,6 +13,7 @@ public class CanvasView extends View {
 
 
     private Paint text;
+
     public CanvasView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         text = new Paint();
@@ -24,6 +25,6 @@ public class CanvasView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawColor(Color.parseColor("#00B277"));
+        canvas.drawColor(Color.parseColor("#e3e3e3"));
     }
 }

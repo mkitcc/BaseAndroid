@@ -54,7 +54,7 @@ class MainActivity : BaseActivity() {
         }
         bind.button.setOnClickListener {
             startActivity(Intent(this, MyWebView::class.java).apply {
-                putExtra(MyWebView.URL,"https://www.qq.com")
+                putExtra(MyWebView.URL,"https://www.bing.com")
             })
         }
 //        ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.POST_NOTIFICATIONS),10)
