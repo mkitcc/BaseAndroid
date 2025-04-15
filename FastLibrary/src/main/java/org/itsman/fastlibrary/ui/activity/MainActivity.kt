@@ -1,30 +1,20 @@
 package org.itsman.fastlibrary.ui.activity
 
-import android.Manifest
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.view.WindowManager
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar.LayoutParams
-import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationChannelCompat
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColorInt
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import org.itsman.fastlibrary.R
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityMainBinding
+import org.itsman.fastlibrary.tools.MyWebView
 import org.itsman.fastlibrary.tools.log
 import org.itsman.fastlibrary.viewmodel.MainActivityVM
 
@@ -61,36 +51,12 @@ class MainActivity : BaseActivity() {
 //
 //                }
 //            }
-            val notifServer = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
-                val channel =
-                    NotificationChannel("test", "base", NotificationManager.IMPORTANCE_HIGH)
-                notifServer.createNotificationChannel(channel)
-            }
-            val notifi = NotificationCompat.Builder(this, "test").setContentText("Test")
-                .setContentTitle("Test")
-                .setSmallIcon(R.mipmap.calories_icon)
-                .setAutoCancel(true)
-                .build()
-            notifServer.notify(123, notifi)
         }
         bind.button.setOnClickListener {
-
+            startActivity(Intent(this, MyWebView::class.java).apply {
+                putExtra(MyWebView.URL,"https://www.qq.com")
+            })
         }
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-            val notifServer = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
-                val channel =
-                    NotificationChannel("test", "base", NotificationManager.IMPORTANCE_HIGH)
-                notifServer.createNotificationChannel(channel)
-            }
-            val notifi = NotificationCompat.Builder(this, "test").setContentText("Test")
-                .setContentTitle("Test")
-                .setSmallIcon(R.mipmap.calories_icon)
-                .setAutoCancel(true)
-                .build()
-            notifServer.notify(123, notifi)
-        }.launch(Manifest.permission.POST_NOTIFICATIONS)
 //        ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.POST_NOTIFICATIONS),10)
 //        model.data.observe(this) {
 //            bind.tvText.text = it
