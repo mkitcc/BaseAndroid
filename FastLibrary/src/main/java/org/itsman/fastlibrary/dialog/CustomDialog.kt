@@ -2,6 +2,7 @@ package org.itsman.fastlibrary.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
@@ -24,6 +25,9 @@ class CustomDialog : DialogFragment(){
         }
     }
 
+    override fun onCancel(dialog: DialogInterface) {
+        super.onCancel(dialog)
+    }
     fun show(manager: FragmentManager){
         show(manager, TAG)
     }

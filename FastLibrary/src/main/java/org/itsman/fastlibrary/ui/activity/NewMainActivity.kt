@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityNewMainBinding
 import org.itsman.fastlibrary.ui.compose.theme.BaseAndroidTheme
 
