@@ -2,6 +2,7 @@ package org.itsman.baseandroid
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
@@ -17,6 +18,7 @@ fun main(): Unit = runBlocking {
     b = a
     println(b.foo())
     println(b.a)
+    async {  }
     var job =launch {
         app("launch")
         try {

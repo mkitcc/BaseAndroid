@@ -1,4 +1,4 @@
-package org.itsman.fastlibrary
+package org.itsman.fastlibrary.ui.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import org.itsman.fastlibrary.ui.compose.theme.BaseAndroidTheme
 
-class MainActivity : ComponentActivity() {
+class ComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

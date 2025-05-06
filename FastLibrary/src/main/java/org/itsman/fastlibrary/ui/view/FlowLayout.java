@@ -28,7 +28,6 @@ public class FlowLayout extends ViewGroup {
         for (int i=0;i<childConut;i++){
             View childView = getChildAt(i);
             measureChild(childView,widthMeasureSpec,heightMeasureSpec);
-
         }
     }
 }

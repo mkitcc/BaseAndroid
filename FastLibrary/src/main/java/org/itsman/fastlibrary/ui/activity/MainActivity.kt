@@ -10,7 +10,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar.LayoutParams
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.itsman.fastlibrary.R
 import org.itsman.fastlibrary.base.BaseActivity
@@ -36,17 +38,15 @@ class MainActivity : BaseActivity() {
                 return true
             }
         })
-//        setContent {
-//            BaseAndroidTheme {
-//                Show(name = "kevin",model = model)
-//            }
-//        }
-
         bind.button.text = "hello 123"
-        model.getData()
+        bind.button.setOnClickListener {
+            model.getData()
+        }
         lifecycleScope.launch {
-            model.data.collect {
-                bind.tvContent.text=it
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                model.data.collect {
+                    bind.tvContent.text = it
+                }
             }
         }
     }
