@@ -15,6 +15,7 @@ import org.itsman.fastlibrary.R
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityMainBinding
 import org.itsman.fastlibrary.tools.MyWebView
+import org.itsman.fastlibrary.tools.MyWork
 import org.itsman.fastlibrary.tools.log
 import org.itsman.fastlibrary.viewmodel.MainActivityVM
 
@@ -27,7 +28,6 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = ActivityMainBinding.inflate(layoutInflater)
-
         setContentView(bind.root)
         handler = Handler(Looper.getMainLooper(), object : Handler.Callback {
             override fun handleMessage(msg: Message): Boolean {
@@ -53,9 +53,7 @@ class MainActivity : BaseActivity() {
 //            }
         }
         bind.button.setOnClickListener {
-            startActivity(Intent(this, MyWebView::class.java).apply {
-                putExtra(MyWebView.URL,"https://www.bing.com")
-            })
+            MyWork.build(this)
         }
 //        ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.POST_NOTIFICATIONS),10)
 //        model.data.observe(this) {

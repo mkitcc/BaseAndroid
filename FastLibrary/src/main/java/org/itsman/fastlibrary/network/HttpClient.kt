@@ -25,6 +25,7 @@ class HttpClient(url:String) {
 
     private val mApiServer = mRetrofit.create(ApiServer::class.java)
 
+
     fun getApi(): ApiServer {
         return mApiServer
     }
