@@ -1,6 +1,5 @@
 package org.itsman.fastlibrary.ui.activity
 
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
@@ -11,13 +10,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar.LayoutParams
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import org.itsman.fastlibrary.R
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityMainBinding
-import org.itsman.fastlibrary.tools.MyWebView
-import org.itsman.fastlibrary.tools.MyWork
 import org.itsman.fastlibrary.tools.log
-import org.itsman.fastlibrary.viewmodel.MainActivityVM
+import org.itsman.fastlibrary.ui.viewmodel.MainActivityVM
 
 class MainActivity : BaseActivity() {
 
@@ -28,6 +27,8 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = ActivityMainBinding.inflate(layoutInflater)
+        WindowCompat.getInsetsController(window, window.decorView)
+            .hide(WindowInsetsCompat.Type.systemBars())
         setContentView(bind.root)
         handler = Handler(Looper.getMainLooper(), object : Handler.Callback {
             override fun handleMessage(msg: Message): Boolean {
@@ -41,38 +42,13 @@ class MainActivity : BaseActivity() {
 //            }
 //        }
 
-        WindowCompat.getInsetsController(window, window.decorView)
-            .hide(WindowInsetsCompat.Type.systemBars())
         bind.button.text = "hello 123"
-        bind.button.setOnClickListener {
-//            val a = ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
-//            registerForActivityResult(ActivityResultContracts.RequestPermission()) { isG ->
-//                if (isG) {
-//
-//                }
-//            }
-        }
-        bind.button.setOnClickListener {
-            MyWork.build(this)
-        }
-//        ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.POST_NOTIFICATIONS),10)
-//        model.data.observe(this) {
-//            bind.tvText.text = it
-//            CustomDialog().show(supportFragmentManager)
-//        }
-//        bind.button.setOnClickListener {
-//            //CustomDialog().show(supportFragmentManager)
-//            addView()
-//            bind.button.post {
-//                log("" + bind.button.width)
-//            }
-//        }
-
         model.getData()
-        model.data.observe(this) {
-            log(it!!)
+        lifecycleScope.launch {
+            model.data.collect {
+                bind.tvContent.text=it
+            }
         }
-        log("onCreate")
     }
 
 

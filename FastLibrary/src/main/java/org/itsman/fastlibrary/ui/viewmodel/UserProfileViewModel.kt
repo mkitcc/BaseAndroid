@@ -1,4 +1,4 @@
-package org.itsman.fastlibrary.viewmodel
+package org.itsman.fastlibrary.ui.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

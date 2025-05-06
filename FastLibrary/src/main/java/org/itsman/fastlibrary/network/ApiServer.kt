@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface ApiServer {
 
     @GET("/hotkey/json")
-    suspend fun getHotkey(): ResponseResult<List<Hotkey>>
+    suspend fun getHotkey(): Response<List<Hotkey>>
 
 }

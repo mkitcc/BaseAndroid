@@ -74,8 +74,12 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    //okhttp retrofit
     implementation(libs.com.squareup.retrofit2)
     implementation(libs.com.squareup.retrofit2.converter.gson)
+    implementation(platform(libs.com.squareup.bom))
+    implementation(libs.com.squareup.okhttp3)
+    implementation(libs.com.squareup.okhttp3.logging.interceptor)
     implementation(libs.com.squareup.retrofit2.adapter.rxjava)
     implementation(libs.io.reactivex.rxjava2.rxandroid)
 

@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import org.itsman.fastlibrary.R
-import org.itsman.fastlibrary.viewmodel.MainActivityVM
+import org.itsman.fastlibrary.ui.viewmodel.MainActivityVM
 
 
 val params = Modifier

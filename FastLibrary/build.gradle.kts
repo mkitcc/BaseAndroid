@@ -44,9 +44,6 @@ android {
 
 dependencies {
 
-    //网络相关
-    implementation(libs.com.squareup.retrofit2)
-    implementation(libs.com.squareup.retrofit2.converter.gson)
     implementation(libs.androidx.paging.runtime.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
@@ -64,6 +61,18 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.work.runtime.ktx)
+    //kotlin coroutines
+    implementation(libs.org.jetbrains.kotlinx.coroutines.android)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+
+    //网络相关
+    implementation(libs.com.squareup.retrofit2)
+    implementation(libs.com.squareup.retrofit2.converter.gson)
+    implementation(platform(libs.com.squareup.bom))
+    implementation(libs.com.squareup.okhttp3)
+    implementation(libs.com.squareup.okhttp3.logging.interceptor)
+    implementation(libs.com.squareup.retrofit2.adapter.rxjava)
+    implementation(libs.io.reactivex.rxjava2.rxandroid)
 }
