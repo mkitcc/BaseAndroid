@@ -1,4 +1,4 @@
-package org.itsman.fastlibrary.dialog
+package org.itsman.fastlibrary.ui.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater

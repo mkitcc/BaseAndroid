@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:name=".MyApp"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BaseAndroid"
+        android:theme="@style/Theme.FirstLibrary"
         tools:targetApi="31">
 
 

@@ -7,11 +7,11 @@ plugins {
 
 android {
     namespace = "org.itsman.baseandroid"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "org.itsman.baseandroid"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"

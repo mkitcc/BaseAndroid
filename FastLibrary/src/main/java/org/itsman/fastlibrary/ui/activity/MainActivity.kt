@@ -19,6 +19,7 @@ import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityMainBinding
 import org.itsman.fastlibrary.tools.log
 import org.itsman.fastlibrary.ui.viewmodel.MainActivityVM
+import org.itsman.fastlibrary.ui.dialog.CustomDialog
 
 class MainActivity : BaseActivity() {
 
@@ -40,8 +41,9 @@ class MainActivity : BaseActivity() {
         })
         bind.button.text = "hello 123"
         bind.button.setOnClickListener {
-            model.getData()
+//            CustomDialog().show(supportFragmentManager)
         }
+        bind.tvText
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 model.data.collect {
@@ -50,7 +52,6 @@ class MainActivity : BaseActivity() {
             }
         }
     }
-
 
     private fun addView() {
         val layoutParams = WindowManager.LayoutParams().apply {

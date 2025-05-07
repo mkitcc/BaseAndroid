@@ -1,4 +1,4 @@
-package org.itsman.fastlibrary.dialog
+package org.itsman.fastlibrary.ui.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog
