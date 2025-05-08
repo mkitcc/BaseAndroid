@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.view.Gravity
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar.LayoutParams
@@ -41,7 +42,10 @@ class MainActivity : BaseActivity() {
         })
         bind.button.text = "hello 123"
         bind.button.setOnClickListener {
-//            CustomDialog().show(supportFragmentManager)
+            CustomDialog({ inflater, viewGroup ->
+                val view = inflater.inflate(R.layout.activity_main, viewGroup)
+                return@CustomDialog view
+            }, Gravity.BOTTOM).show(supportFragmentManager)
         }
         bind.tvText
         lifecycleScope.launch {
