@@ -43,7 +43,7 @@ class MainActivity : BaseActivity() {
         bind.button.text = "hello 123"
         bind.button.setOnClickListener {
             CustomDialog({ inflater, viewGroup ->
-                val view = inflater.inflate(R.layout.activity_main, viewGroup)
+                val view = inflater.inflate(R.layout.dialog_test, viewGroup)
                 return@CustomDialog view
             }, Gravity.BOTTOM).show(supportFragmentManager)
         }

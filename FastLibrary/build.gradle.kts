@@ -44,9 +44,11 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.paging.runtime.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.com.google.android.material)
     implementation(libs.androidx.constraintlayout)
@@ -62,7 +64,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
 
-    implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.work.runtime.ktx)
     //kotlin coroutines
     implementation(libs.org.jetbrains.kotlinx.coroutines.android)

@@ -35,17 +35,6 @@ class CustomDialog(
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = Dialog(requireContext())
-        val window = dialog.window
-        window?.let {
-            val ll = window.attributes
-            ll.gravity= locale
-            ll.verticalMargin=0f
-            ll.dimAmount=1f
-            ll.width= ViewGroup.LayoutParams.MATCH_PARENT
-            ll.height= ViewGroup.LayoutParams.MATCH_PARENT
-            window.attributes=ll
-            window.decorView.setPadding(0,0,0,0)
-        }
         return dialog
     }
 
@@ -58,6 +47,21 @@ class CustomDialog(
         return layout
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val window = dialog?.window
+        window?.let {
+            val ll = window.attributes
+            ll.gravity = locale
+            ll.verticalMargin = 0f
+            ll.horizontalMargin=0f
+            ll.dimAmount = 0f
+            ll.width = ViewGroup.LayoutParams.MATCH_PARENT
+            ll.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            window.attributes = ll
+            window.decorView.setPadding(0, 0, 0, 0)
+        }
+    }
 
     override fun onCancel(dialog: DialogInterface) {
         super.onCancel(dialog)
