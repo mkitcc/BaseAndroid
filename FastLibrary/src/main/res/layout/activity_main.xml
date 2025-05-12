@@ -18,6 +18,14 @@
         app:layout_constraintVertical_bias="0.1"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/calories_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="100dp"

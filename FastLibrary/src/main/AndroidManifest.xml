@@ -19,7 +19,13 @@
         <activity
             android:name=".ui.activity.ComposeActivity"
             android:exported="true" />
+        <activity
+            android:name=".ui.activity.CoordinatorActivity"
+            android:exported="true">
+        </activity>
         <activity android:name=".tools.RequestPermissionAc" />
         <activity android:name=".tools.MyWebView" />
+        <activity android:name=".ui.activity.IMEActivity" >
+        </activity>
     </application>
 </manifest>
