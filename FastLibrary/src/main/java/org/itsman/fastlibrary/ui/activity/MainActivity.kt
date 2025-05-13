@@ -1,5 +1,6 @@
 package org.itsman.fastlibrary.ui.activity
 
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.os.Bundle
@@ -7,13 +8,16 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
+import org.itsman.fastlibrary.R
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityMainBinding
 import org.itsman.fastlibrary.tools.log
+import org.itsman.fastlibrary.ui.dialog.CustomDialog
 import org.itsman.fastlibrary.ui.viewmodel.MainActivityVM
 
 
@@ -40,15 +44,7 @@ class MainActivity : BaseActivity() {
 //                return@CustomDialog view
 //            }
 //            dialog.show(supportFragmentManager)
-
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            val currentOrientation = getResources().getConfiguration().orientation
-
-            if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-            } else {
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
-            }
+            startActivity(Intent(this, LottieActivity::class.java))
         }
         bind.tvText
         lifecycleScope.launch {
@@ -58,7 +54,6 @@ class MainActivity : BaseActivity() {
                 }
             }
         }
-//        startActivity(Intent(this, IMEActivity::class.java))
     }
 
     override fun onAttachedToWindow() {

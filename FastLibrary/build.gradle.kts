@@ -71,6 +71,8 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
 
+    //lottie动画
+    implementation(libs.lottie)
     //网络相关
     implementation(libs.com.squareup.retrofit2)
     implementation(libs.com.squareup.retrofit2.converter.gson)

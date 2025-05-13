@@ -27,5 +27,6 @@
         <activity android:name=".tools.MyWebView" />
         <activity android:name=".ui.activity.IMEActivity" >
         </activity>
+        <activity android:name=".ui.activity.LottieActivity"/>
     </application>
 </manifest>
