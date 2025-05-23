@@ -21,12 +21,11 @@
             android:exported="true" />
         <activity
             android:name=".ui.activity.CoordinatorActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity android:name=".tools.RequestPermissionAc" />
         <activity android:name=".tools.MyWebView" />
-        <activity android:name=".ui.activity.IMEActivity" >
-        </activity>
-        <activity android:name=".ui.activity.LottieActivity"/>
+        <activity android:name=".ui.activity.IMEActivity" />
+        <activity android:name=".ui.activity.LottieActivity" />
+        <activity android:name=".ui.activity.PptxActivity" />
     </application>
 </manifest>

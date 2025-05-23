@@ -31,6 +31,23 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         bind = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bind.root)
+
+        // set some system-properties to instruct the code to use the fasterxml parsers
+        System.setProperty(
+            "org.apache.poi.javax.xml.stream.XMLInputFactory",
+            "com.fasterxml.aalto.stax.InputFactoryImpl"
+        )
+        System.setProperty(
+            "org.apache.poi.javax.xml.stream.XMLOutputFactory",
+            "com.fasterxml.aalto.stax.OutputFactoryImpl"
+        )
+        System.setProperty(
+            "org.apache.poi.javax.xml.stream.XMLEventFactory",
+            "com.fasterxml.aalto.stax.EventFactoryImpl"
+        )
+        System.setProperty("org.apache.poi.ss.ignoreMissingFontSystem", "true")
+
+
         handler = Handler(Looper.getMainLooper(), object : Handler.Callback {
             override fun handleMessage(msg: Message): Boolean {
 
@@ -44,7 +61,7 @@ class MainActivity : BaseActivity() {
 //                return@CustomDialog view
 //            }
 //            dialog.show(supportFragmentManager)
-            startActivity(Intent(this, LottieActivity::class.java))
+            startActivity(Intent(this, PptxActivity::class.java))
         }
         bind.tvText
         lifecycleScope.launch {
