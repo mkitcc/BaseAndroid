@@ -1,8 +1,10 @@
 package org.itsman.fastlibrary.tools
 
 import android.app.Activity
-import org.apache.poi.sl.draw.geom.Context
 
+/**
+ * 打开Assets 里的文件
+ */
 fun getAssets(context: Activity,name: String){
 
     context.assets.open(name)
