@@ -1,26 +1,85 @@
 package org.itsman.fastlibrary.ui.activity
 
 import android.animation.ObjectAnimator
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
+import org.itsman.fastlibrary.R
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityNewMainBinding
 import org.itsman.fastlibrary.ui.compose.theme.BaseAndroidTheme
+import org.itsman.fastlibrary.ui.fragment.AboutFragment
+import org.itsman.fastlibrary.ui.fragment.HomeFragment
 
 class NewMainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNewMainBinding
+    var fragmentList = mutableListOf<Fragment>()
+    var fragmentAdapter: FragmentStateAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        super.onCreate(savedInstanceState)
         binding = ActivityNewMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        super.onCreate(savedInstanceState)
-        binding.myProgress.setColor(Color.RED, Color.GREEN, Color.BLUE)
-        binding.myProgress.max=10
-//        binding.myProgress.progress=8
-        ObjectAnimator.ofInt(binding.myProgress,"P",0,10).apply {
-            duration=3000
-        }.start()
+        initView()
+        initData()
+    }
+
+    fun initView() {
+        //init viewpage2
+        fragmentAdapter = object : FragmentStateAdapter(this) {
+            override fun createFragment(position: Int): Fragment {
+                return fragmentList[position]
+            }
+
+            override fun getItemCount() = fragmentList.size
+        }
+        binding.viewpage2.adapter = fragmentAdapter
+        binding.viewpage2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int,
+            ) {
+                binding.tab.setScrollPosition(position, 0f, true)
+            }
+        })
+
+        //init tab
+        for (i in 0..2) {
+            binding.tab.addTab(binding.tab.newTab().apply {
+                setText("$i$i$i")
+                customView
+            })
+        }
+        binding.tab.apply {
+            tabRippleColor = ColorStateList.valueOf(Color.RED)
+            setSelectedTabIndicatorColor(getColor(R.color.purple_500))
+            addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    tab?.view?.isSelected = true
+                    binding.viewpage2.currentItem = tab?.position ?: 0
+                }
+
+                override fun onTabUnselected(tab: TabLayout.Tab?) {
+                    tab?.view?.isSelected = false
+                }
+
+                override fun onTabReselected(tab: TabLayout.Tab?) {
+                }
+
+            })
+        }
+    }
+
+    fun initData() {
+        fragmentList.add(HomeFragment())
+        fragmentList.add(AboutFragment())
+        fragmentAdapter?.notifyDataSetChanged()
     }
 }

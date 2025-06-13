@@ -24,16 +24,16 @@ class AboutFragment : Fragment() {
     ): View? {
         return ComposeView(requireContext()).apply {
             setContent {
-                init(Navigation.findNavController(this))
+                init()
             }
         }
     }
 }
 
 @Composable
-private fun init(findNavController: NavController) {
+private fun init() {
     Image(painter = painterResource(id = R.drawable.asdf),
         contentDescription = null,
-        modifier = Modifier.clickable { findNavController.navigateUp() }
+        modifier = Modifier.clickable {}
     )
 }

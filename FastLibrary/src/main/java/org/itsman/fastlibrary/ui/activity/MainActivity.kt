@@ -1,5 +1,6 @@
 package org.itsman.fastlibrary.ui.activity
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
@@ -14,7 +15,6 @@ import org.itsman.fastlibrary.R
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityMainBinding
 import org.itsman.fastlibrary.tools.log
-import org.itsman.fastlibrary.ui.dialog.CustomPopup
 import org.itsman.fastlibrary.ui.viewmodel.MainActivityVM
 import kotlin.getValue
 
@@ -38,13 +38,7 @@ class MainActivity : BaseActivity() {
         })
         bind.button.text = "hello 123"
         bind.button.setOnClickListener {
-//            val dialog = CustomDialog(CustomDialog.StyleBottom) { inflater, viewGroup ->
-//                val view = inflater.inflate(R.layout.dialog_test, viewGroup)
-//                return@CustomDialog view
-//            }
-//            dialog.show(supportFragmentManager)
-//            startActivity(Intent(this, PptxActivity::class.java))
-            CustomPopup.show(bind.button,R.layout.flowwm)
+            startActivity(Intent(this, NewMainActivity::class.java))
         }
         bind.tvText
         lifecycleScope.launch {
