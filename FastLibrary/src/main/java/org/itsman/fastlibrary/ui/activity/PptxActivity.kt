@@ -7,7 +7,6 @@ import androidx.transition.Fade
 import androidx.transition.Scene
 import androidx.transition.TransitionManager
 import kotlinx.coroutines.launch
-import org.apache.poi.xslf.usermodel.XMLSlideShow
 import org.itsman.fastlibrary.R
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityPptxBinding
