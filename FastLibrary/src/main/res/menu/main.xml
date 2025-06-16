@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/menu_1"
-        android:icon="@mipmap/calories_icon"
+        android:icon="@drawable/calories_icon"
         android:title="huo" />
     <item
         android:id="@+id/menu_2"
-        android:icon="@mipmap/calories_icon"
+        android:icon="@drawable/calories_icon"
         android:title="huo" />
 </menu>

@@ -42,7 +42,7 @@ fun sendNotify(context: Context) {
     //创建通知
     val notifi = NotificationCompat.Builder(context, channelID).setContentText("Test")
         .setContentTitle("Test")
-        .setSmallIcon(R.mipmap.calories_icon)
+        .setSmallIcon(R.drawable.calories_icon)
         .setAutoCancel(true)
         .build()
     nsc.createNotificationChannel(channel)
