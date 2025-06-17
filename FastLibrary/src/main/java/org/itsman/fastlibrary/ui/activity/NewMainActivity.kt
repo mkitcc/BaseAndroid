@@ -14,9 +14,11 @@ import com.google.android.material.tabs.TabLayoutMediator
 import org.itsman.fastlibrary.R
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityNewMainBinding
+import org.itsman.fastlibrary.databinding.DialogTestBinding
 import org.itsman.fastlibrary.databinding.ItemTabBinding
 import org.itsman.fastlibrary.ui.compose.theme.BaseAndroidTheme
 import org.itsman.fastlibrary.ui.fragment.AboutFragment
+import org.itsman.fastlibrary.ui.fragment.CustomFragment
 import org.itsman.fastlibrary.ui.fragment.HomeFragment
 
 class NewMainActivity : BaseActivity() {
@@ -53,21 +55,13 @@ class NewMainActivity : BaseActivity() {
         })
 
         //init tab
-        for (i in 0..2) {
-//            binding.tab.addTab(binding.tab.newTab().apply {
-//                setText("$i$i$i")
-//                customView
-//            })
-        }
         binding.tab.apply {
-//            tabRippleColor = ColorStateList.valueOf(Color.RED)
-//            setSelectedTabIndicatorColor(getColor(R.color.purple_500))
             addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     val customView = tab?.customView
                     customView?.let {
                         val binding = ItemTabBinding.bind(customView)
-                        binding.tvLabel.text="current"
+                        binding.tvLabel.text = "current"
 
                     }
                 }
@@ -76,7 +70,7 @@ class NewMainActivity : BaseActivity() {
                     val customView = tab?.customView
                     customView?.let {
                         val binding = ItemTabBinding.bind(customView)
-                        binding.tvLabel.text="Home"
+                        binding.tvLabel.text = "Home"
                     }
                 }
 
@@ -85,14 +79,20 @@ class NewMainActivity : BaseActivity() {
 
             })
         }
-        TabLayoutMediator(binding.tab,binding.viewpage2){position,i->
-            position.customView= layoutInflater.inflate(R.layout.item_tab,null)
+        TabLayoutMediator(binding.tab, binding.viewpage2) { position, i ->
+            position.customView = layoutInflater.inflate(R.layout.item_tab, null)
         }.attach()
     }
 
     fun initData() {
         fragmentList.add(HomeFragment())
         fragmentList.add(AboutFragment())
+        fragmentList.add(CustomFragment(R.layout.dialog_test){view->
+          val bind=DialogTestBinding.bind(view)
+            bind.btn1.setOnClickListener {
+                binding.viewpage2.currentItem=0
+            }
+        })
         fragmentAdapter?.notifyDataSetChanged()
     }
 }

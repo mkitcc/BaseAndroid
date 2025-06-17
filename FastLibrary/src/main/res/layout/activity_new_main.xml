@@ -35,5 +35,6 @@
         android:layout_marginBottom="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:tabIndicatorHeight="0dp"
+        app:tabMode="fixed"
         app:tabRippleColor="@android:color/transparent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

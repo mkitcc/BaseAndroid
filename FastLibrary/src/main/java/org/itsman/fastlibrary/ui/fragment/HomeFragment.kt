@@ -16,8 +16,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import org.itsman.fastlibrary.R
+import org.itsman.fastlibrary.base.BaseFragment
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
