@@ -38,7 +38,7 @@ class MainActivity : BaseActivity() {
         })
         bind.button.text = "hello 123"
         bind.button.setOnClickListener {
-            startActivity(Intent(this, NewMainActivity::class.java))
+            startActivity(Intent(this, CoordinatorActivity::class.java))
         }
         bind.tvText
         lifecycleScope.launch {
