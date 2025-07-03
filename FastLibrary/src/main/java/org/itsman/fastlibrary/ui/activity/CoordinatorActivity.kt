@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityCoordinatorBinding
+import org.itsman.fastlibrary.ui.adapter.SimpleAdapter
 
 class CoordinatorActivity : BaseActivity() {
 
@@ -16,16 +18,23 @@ class CoordinatorActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         bind = ActivityCoordinatorBinding.inflate(layoutInflater)
         setContentView(bind.root)
+        useInsetsMargin(bind.root)
+        initView()
+        initData()
+    }
+
+    fun initView() {
         bind.root.setOnClickListener {
-            bind.appbarTitle.setExpanded(false)
+//            bind.appbarTitle.setExpanded(false)
         }
-        val windowInsets = ViewCompat.getRootWindowInsets(window.decorView)
-        val inset = windowInsets?.getInsets(WindowInsetsCompat.Type.statusBars())
-        Log.i("CoordinatorActivity",inset?.top.toString())
+    }
+
+    fun initData() {
+        bind.recycler.adapter = SimpleAdapter()
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        bind.appbarTitle.setExpanded(false)
+//        bind.appbarTitle.setExpanded(false)
         return super.dispatchTouchEvent(ev)
     }
 

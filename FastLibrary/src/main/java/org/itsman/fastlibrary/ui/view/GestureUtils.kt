@@ -14,6 +14,7 @@ fun listenScroll(view: View, view2: View) {
 
     val gd = object : GestureDetector.SimpleOnGestureListener() {
         override fun onDown(e: MotionEvent): Boolean {
+            //必须返回true,
             return true
         }
 

@@ -8,6 +8,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.graphics.Shader
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 
 class MyProgress constructor(context: Context, attr: AttributeSet? = null, defStyle: Int = 0) : View
@@ -95,6 +96,10 @@ class MyProgress constructor(context: Context, attr: AttributeSet? = null, defSt
         progressColor1 = p1
         progressColor2 = p2
         invalidate()
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        return super.onTouchEvent(event)
     }
 
 //    fun setMax(m: Int) {
