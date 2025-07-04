@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application>
 
         <activity
@@ -22,7 +24,7 @@
         <activity
             android:name=".ui.activity.CoordinatorActivity"
             android:exported="true" />
-        <activity android:name=".tools.RequestPermissionAc" />
+        <activity android:name=".tools.permission.RequestPermissionAc" />
         <activity android:name=".tools.MyWebView" />
         <activity android:name=".ui.activity.IMEActivity" />
         <activity android:name=".ui.activity.LottieActivity" />

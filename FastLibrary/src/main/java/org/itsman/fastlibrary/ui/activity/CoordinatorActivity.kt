@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityCoordinatorBinding
 import org.itsman.fastlibrary.ui.adapter.SimpleAdapter
+import org.itsman.fastlibrary.ui.view.addView
 
 class CoordinatorActivity : BaseActivity() {
 
@@ -31,6 +32,12 @@ class CoordinatorActivity : BaseActivity() {
 
     fun initData() {
         bind.recycler.adapter = SimpleAdapter()
+        bind.ivTop.setOnClickListener {
+            addView(this)
+        }
+//        bind.recycler.postDelayed({
+//            addView(this)
+//        },1000)
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
