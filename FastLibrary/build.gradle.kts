@@ -33,6 +33,7 @@ android {
     buildFeatures {
         compose = true
         viewBinding = true
+        aidl = true
     }
 //    viewBinding {
 //        enable = true
