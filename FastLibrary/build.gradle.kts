@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "org.itsman.fastlibrary"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 23
@@ -35,9 +35,7 @@ android {
         viewBinding = true
         aidl = true
     }
-//    viewBinding {
-//        enable = true
-//    }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.7"
     }

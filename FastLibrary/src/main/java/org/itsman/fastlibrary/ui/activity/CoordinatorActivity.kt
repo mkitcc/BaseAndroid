@@ -8,6 +8,8 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityCoordinatorBinding
+import org.itsman.fastlibrary.tools.permission.RequestPermission
+import org.itsman.fastlibrary.tools.permission.RequestPermissionAc
 import org.itsman.fastlibrary.ui.adapter.SimpleAdapter
 import org.itsman.fastlibrary.ui.view.addView
 
@@ -33,7 +35,10 @@ class CoordinatorActivity : BaseActivity() {
     fun initData() {
         bind.recycler.adapter = SimpleAdapter()
         bind.ivTop.setOnClickListener {
-            addView(this)
+            if (RequestPermission.checkDrawOverlays(this)){
+                addView(this)
+                finish()
+            }
         }
 //        bind.recycler.postDelayed({
 //            addView(this)

@@ -2,17 +2,16 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.kotlin)
     //hilt 注入
-    id("kotlin-kapt")
 }
 
 android {
     namespace = "org.itsman.baseandroid"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "org.itsman.baseandroid"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
