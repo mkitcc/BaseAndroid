@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -38,8 +39,8 @@ class MainActivity : BaseActivity() {
         })
         bind.button.text = "hello 123"
         bind.button.setOnClickListener {
+
         }
-        bind.tvText
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 model.data.collect {
@@ -47,10 +48,9 @@ class MainActivity : BaseActivity() {
                 }
             }
         }
-        launch()
     }
 
-    private fun launch(){
+    private fun launch() {
         startActivity(Intent(this, CoordinatorActivity::class.java))
         finish()
     }

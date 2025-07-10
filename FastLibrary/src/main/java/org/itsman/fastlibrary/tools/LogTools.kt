@@ -4,6 +4,6 @@ import android.util.Log
 
 private const val HEAD = "FastLibrary"
 
-fun log(str: String) {
-    Log.e(HEAD, str)
+fun String.log() {
+    Log.e(HEAD, this)
 }

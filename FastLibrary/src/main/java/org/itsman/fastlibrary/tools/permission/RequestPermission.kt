@@ -1,6 +1,8 @@
 package org.itsman.fastlibrary.tools.permission
 
+import android.Manifest
 import android.app.Activity
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 
@@ -24,18 +27,27 @@ object RequestPermission {
         RequestPermissionAc.start(context, i, result)
     }
 
-    //是否有小窗口权限
-    fun checkDrawOverlays(context: Context) =
-        if (Settings.canDrawOverlays(context)) {
-            true
+    //检查通知
+    fun checkNotification(context: Context): Boolean {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            return ActivityCompat.checkSelfPermission(
+                context, Manifest.permission.POST_NOTIFICATIONS
+            ) == PackageManager.PERMISSION_GRANTED
         } else {
-            val intent = Intent(
-                Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                Uri.parse("package:" + context.packageName)
-            )
-            context.startActivity(intent)
-            false
+            return true
         }
+    }
+
+    //是否有小窗口权限
+    fun checkDrawOverlays(context: Context) = if (Settings.canDrawOverlays(context)) {
+        true
+    } else {
+        val intent = Intent(
+            Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.packageName)
+        )
+        context.startActivity(intent)
+        false
+    }
 
     fun checkAllFile(context: Context) {
 
@@ -67,6 +79,9 @@ class RequestPermissionAc : AppCompatActivity() {
             return
         }
         requestPermissions(arrayOf(permission), 1234)
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+
+        }
         overridePendingTransition(0, 0)
     }
 

@@ -1,33 +1,25 @@
-package org.itsman.fastlibrary.ui.view;
+package org.itsman.fastlibrary.ui.view
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context
+import android.util.AttributeSet
+import android.view.ViewGroup
 
-public class FlowLayout extends ViewGroup {
-
-    public FlowLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        int count = getChildCount();
-        for (int i =0 ;i<count;i++){
-            getChildAt(i).layout(l, t, r, b);
-            l+=getChildAt(i).getMeasuredWidth();
+class FlowLayout(context: Context?, attrs: AttributeSet?) : ViewGroup(context, attrs) {
+    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+        var l = l
+        val count = getChildCount()
+        for (i in 0 until count) {
+            getChildAt(i).layout(l, t, r, b)
+            l += getChildAt(i).getMeasuredWidth()
         }
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-
-        super.onMeasure(widthMeasureSpec,heightMeasureSpec);
-        int childConut = getChildCount();
-        for (int i=0;i<childConut;i++){
-            View childView = getChildAt(i);
-            measureChild(childView,widthMeasureSpec,heightMeasureSpec);
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        val childConut = getChildCount()
+        for (i in 0 until childConut) {
+            val childView = getChildAt(i)
+            measureChild(childView, widthMeasureSpec, heightMeasureSpec)
         }
     }
 }
