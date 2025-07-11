@@ -51,7 +51,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun launch() {
-        startActivity(Intent(this, CoordinatorActivity::class.java))
+        startActivity(Intent(this, ComposeActivity::class.java))
         finish()
     }
 }

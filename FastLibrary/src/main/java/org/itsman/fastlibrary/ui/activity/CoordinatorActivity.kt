@@ -6,6 +6,7 @@ import android.view.MotionEvent
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.ConcatAdapter
 import org.itsman.fastlibrary.base.BaseActivity
 import org.itsman.fastlibrary.databinding.ActivityCoordinatorBinding
 import org.itsman.fastlibrary.tools.permission.RequestPermission
@@ -34,6 +35,7 @@ class CoordinatorActivity : BaseActivity() {
 
     fun initData() {
         bind.recycler.adapter = SimpleAdapter()
+        bind.recycler.adapter = ConcatAdapter(SimpleAdapter())
         bind.ivTop.setOnClickListener {
             if (RequestPermission.checkDrawOverlays(this)){
                 addView(this)

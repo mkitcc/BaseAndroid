@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -35,11 +36,22 @@ class ComposeActivity : ComponentActivity() {
     }
 }
 
+
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    BaseAndroidTheme {
+        Greeting("Android")
+    }
+}
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     val state = remember{ mutableStateOf(202020202) }
     var state2 by remember { mutableStateOf(100100101) }
     Column {
+
         Text(
             text = "Hello $name!",
             modifier = modifier
@@ -48,13 +60,5 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             text = "${state.value} $state2",
             modifier = modifier
         )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    BaseAndroidTheme {
-        Greeting("Android")
     }
 }
